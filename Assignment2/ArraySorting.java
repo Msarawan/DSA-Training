@@ -19,7 +19,7 @@ static void  sortarray( int [] array , int n )
         {  
             countone = countone + 1 ;  
         }  
-                       if ( array[ i ] == 2 )  
+          if ( array[ i ] == 2 )  
         {  
             counttwo = counttwo + 1 ;  
         }  
@@ -42,6 +42,7 @@ static void  sortarray( int [] array , int n )
         i = i + 1 ;  
     }  
 }  
+
 public static void main ( String args[] )    
 {    
  int n ;  
