@@ -1,31 +1,24 @@
 package Assignment3;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class SubsetInteger {
-
     public static void main(String[] args) {
-        int[] arr = {1,2,3};
-        List<Integer> s = new ArrayList<>();
-        List<List<Integer>> ans = subset(s,arr);
-         for (List<Integer> list : ans){
-             System.out.println(list);
-         }
+        int[] a = {1, 2 ,3};
+        System.out.println(subsets(a));
     }
-    static List<List<Integer>>  subset(List<Integer> s,int[] arr){
-        if(arr.length == 0){
-            List<List<Integer>> list = new ArrayList<>();
-            list.add(new ArrayList<>(s));
-            return list;
+    public static List<List<Integer>>  subsets(int[] a){
+           List<List<Integer>> res = new ArrayList<>();
+           List<Integer> cu = new ArrayList<>();
+            res(res, cu, a,0);
+            return res;
         }
-        s.add(arr[0]);
-        List<List<Integer>> left = subset(s, Arrays.copyOfRange(arr,1, arr.length));
-        s.remove(s.size() - 1);
-        List<List<Integer>> Right = subset(s, Arrays.copyOfRange(arr,1, arr.length));
-        left.addAll(Right);
-
-        return left;
+     public static void res(List<List<Integer>> res, List<Integer> cu,int[] a, int p){
+        if(cu.size() > a.length) return;
+        res.add(new ArrayList<>(cu));
+        for (int i = p; i< a.length; i++){
+            cu.add(a[i]);
+            res(res, cu, a, i+1);
+            cu.remove(cu.size() -1);
+        }
     }
 }
