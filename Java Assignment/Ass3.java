@@ -4,18 +4,19 @@ import java.util.Scanner;
 
 public class Ass3{
 public static void main(String args[]) { 
- 
-   int n1=8, n2=4;
-   while(n1!=n2){
-   
-     if(n1>n2){
-       n1=n1-n2; 
-        System.out.println("GCD of n1 and n2 is: " +n1);  
-     }else {
-     n2=n2-n1;  
-      System.out.println("GCD of n1 and n2 is: " +n2);  }
-   }
-}    
-} 
+    System.out.println("Enter the number");
+    Scanner sc = new Scanner(System.in);
+    int num1 = sc.nextInt();
+    int num2 = sc.nextInt();
+    int gcd = 0;
+    for (int i = 1; i <= num1 && i <= num2; i++) {
+        if (num1 % i == 0 && num2 % i == 0) {
+            gcd = i;
+        }
+    }
+    System.out.println("the GCD of the two numbers  is: " +gcd);
+}
+}
+
 
 
